@@ -13,8 +13,8 @@ and type:
 ```
 cd
 cd Desktop
-git clone ...
-cd ...
+git clone https://github.com/andreww/2015-08-26-leeds-bash.git
+cd 2015-08-26-leeds-bash
 ```
 
 We will then try to work through the material

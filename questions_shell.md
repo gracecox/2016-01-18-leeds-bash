@@ -99,9 +99,12 @@ do
 done
 ```
 ```
-1. Prints fructose.dat, glucose.dat, and sucrose.dat, and the text from sucrose.dat will be saved to a file called xylose.dat.
-2. Prints fructose.dat, glucose.dat, and sucrose.dat, and the text from all three files would be concatenated and saved to a file called xylose.dat.
-3. Prints fructose.dat, glucose.dat, sucrose.dat, and xylose.dat, and the text from sucrose.dat will be saved to a file called xylose.dat.
+1. Prints fructose.dat, glucose.dat, and sucrose.dat,
+   and the text from sucrose.dat will be saved to a file called xylose.dat.
+2. Prints fructose.dat, glucose.dat, and sucrose.dat,
+   and the text from all three files would be concatenated and saved to a file called xylose.dat.
+3. Prints fructose.dat, glucose.dat, sucrose.dat, and xylose.dat,
+   and the text from sucrose.dat will be saved to a file called xylose.dat.
 4. None of the above.
 ```
 
@@ -118,10 +121,13 @@ do
 done
 ```
 ```
-1. All of the text from fructose.dat, glucose.dat and sucrose.dat would be concatenated and saved to a file called sugar.dat.
+1. All of the text from fructose.dat, glucose.dat and sucrose.dat would be concatenated
+   and saved to a file called sugar.dat.
 2. The text from sucrose.dat will be saved to a file called sugar.dat.
-3. All of the text from fructose.dat, glucose.dat, sucrose.dat and maltose.txt would be concatenated and saved to a file called sugar.dat.
-4. All of the text from fructose.dat, glucose.dat and sucrose.dat would be printed to the screen and saved to a file called sugar.dat
+3. All of the text from fructose.dat, glucose.dat, sucrose.dat and maltose.txt would be
+   concatenated and saved to a file called sugar.dat.
+4. All of the text from fructose.dat, glucose.dat and sucrose.dat would be printed
+   to the screen and saved to a file called sugar.dat
 ```
 ## Loops 4
 

@@ -1,25 +1,3 @@
-## Inputs
-
-What is the difference between:
-```
-wc -l < mydata.dat
-```
-and:
-```
-wc -l mydata.dat
-```
-
-## Outputs
-
-What is the difference between:
-```
-echo hello > testfile01.txt
-```
-and:
-```
-echo hello >> testfile02.txt
-```
-
 ## Pipes 1
 
 In our current directory, we want to find the 3 files which have the least number of lines. Which command listed below would work?
@@ -48,7 +26,7 @@ What text passes through each of the pipes and the final redirect in the pipelin
 cat animals.txt | head -5 | tail -3 | sort -r > final.txt
 ```
 
-## Cut
+## Pipes 3
 
 The command:
 ```
@@ -65,7 +43,7 @@ fox
 rabbit
 bear
 ```
-What other command(s) could be added to this in a pipeline to find out what animals the file contains (without any duplicates in their names)?
+The command uniq prints only those lines that are not repeated in the input (unique lines). How could the cut and uniq commands be used to find out what animals the file contains (without any duplicates in their names)?
 
 ## Loops 1
 Suppose that ls initially displays:
@@ -129,25 +107,7 @@ done
 4. All of the text from fructose.dat, glucose.dat and sucrose.dat would be printed
    to the screen and saved to a file called sugar.dat
 ```
-## Loops 4
 
-The expr does simple arithmetic using command-line parameters:
-```
-$ expr 3 + 5
-8
-$ expr 30 / 5 - 2
-4
-```
-Given this, what is the output of:
-```
-for left in 2 3
-do
-    for right in $left
-    do
-        expr $left + $right
-    done
-done
-```
 ### grep
 ```
 The Tao that is seen
@@ -173,4 +133,23 @@ and the presence of absence:
 4. grep -i "of" haiku.txt
 ```
 
+## Loops 4
+
+The expr does simple arithmetic using command-line parameters:
+```
+$ expr 3 + 5
+8
+$ expr 30 / 5 - 2
+4
+```
+Given this, what is the output of:
+```
+for left in 2 3
+do
+    for right in $left
+    do
+        expr $left + $right
+    done
+done
+```
 

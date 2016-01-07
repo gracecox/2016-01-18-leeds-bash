@@ -1,0 +1,92 @@
+  449  cd molecules/
+  450  ls
+  451  wc *.pdb
+  452  wc -l *.pdb
+  453  wc -l *.pdb > lengths.txt
+  455  ls
+  456  cat lengths.txt 
+  457  sort -n lengths.txt 
+  458  sort -n lengths.txt > sorted.txt
+  459  ls
+  461  cat sorted.txt 
+  462  wc -l *.pdb > lengths.txt
+  463  head -1 sorted.txt 
+  464  sort -n lengths.txt | head -1
+  465  wc -l *.pdb | sort -n | head -1
+  466  history
+  467  cd ../north-pacific-gyre/2012-07-03/
+  471  ls
+  472  wc -l *.txt | sort -n | head -5
+  473  wc -l *.txt | sort -n | tail -5
+  475  ls *[AB].txt
+  476  cd ../../creatures/
+  477  ls
+  479  for filename in basilisk.dat unicorn.dat ; do head -3 $filename; done
+  480  for filename in *.dat ; do head -3 $filename; done
+  484  for filename in *.dat; do echo cp $filename original-$filename; done
+  485  cd ../north-pacific-gyre/2012-07-03/
+  489  for datafile in N*[AB].txt; do bash goostats $datafile stats-$datafile; done
+  490  for datafile in N*[AB].txt; echo $datafile ;  do bash goostats $datafile stats-$datafile; done
+  492  for datafile in N*[AB].txt; do  echo $datafile ;   bash goostats $datafile stats-$datafile; done
+  
+
+  500  cd ~/Desktop/
+  501  mkdir planets
+  502  cd planets/
+  503  git init
+  504  ls
+  505  ls -a
+  506  nano mars.txt
+  507  cat mars.txt 
+  508  git status
+  509  git add mars.txt 
+  510  git status
+  511  git commit -m "Initial notes on Mars"
+  512  git status
+  513  nano mars.txt 
+  514  cat mars.txt 
+  515  git status
+  516  git add mars.txt 
+  517  git commit -m "Added concerns about Wolfman"
+  518  git status
+  519  nano mars.txt 
+  520  nano mars.txt 
+  521  cat mars.txt 
+  522  git status
+  523  clear
+  524  git diff
+  525  git add mars.txt 
+  526  git diff
+  527  git diff --staged
+  528  git commit -m "another change"
+  529  git diff --staged
+  530  clear
+  531  nano pluto.txt
+  532  git add pluto.txt 
+  533  git commit -m "Initial notes on Pluto"
+  534  git log
+  535  nano pluto.txt 
+  536  cat pluto.txt 
+  537  git add pluto.txt 
+  538  git commit -m "more notes on pluto"
+  539  clear
+  540  git log
+  541  clear
+  542  git diff HEAD HEAD~1
+  543  git checkout HEAD~1 pluto.txt 
+  544  cat pluto.txt 
+  545  clear
+  546  git log
+  547  clear
+  548  mkdir results
+  549  touch results/a.txt
+  550  touch results/b.txt
+  551  touch results/c.txt
+  552  git status
+  553  nano .gitignore
+  554  nano .gitignore
+  555  git add -A
+  556  git commit -m "ignoring files"
+  557  clear
+  558  git status
+  559  git status --ignored

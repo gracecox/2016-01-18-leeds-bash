@@ -12,5 +12,5 @@ and type:
 ```
 cd
 cd Desktop
-git clone https://github.com/gracecox/2016-01-06-bristol-bash.git
-cd 2016-01-06-bristol-bash
+git clone https://github.com/gracecox/2016-01-18-leeds-bash.git
+cd 2016-01-18-leeds-bash

@@ -1,7 +1,34 @@
+## Many ways to do the same thing - absolute vs relative paths
+For a hypothetical filesystem location of /Users/amanda/data/, select each of the below commands that Amanda could use to navigate to her home directory, which is Users/amanda.
+```
+cd .
+cd /
+cd /home/amanda
+cd ../..
+cd ~
+cd home
+cd ~/data/..
+cd
+cd ..
+```
+##Relative path resolution
+Using the filesystem diagram below, if pwd displays /Users/thing, what will ls ../backup display?
+```
+../backup: No such file or directory
+2012-12-01 2013-01-08 2013-01-27
+2012-12-01/ 2013-01-08/ 2013-01-27/
+original pnas_final pnas_sub
+```
+
+
+![image for challenge](https://github.com/swcarpentry/shell-novice/blob/gh-pages/fig/filesystem-challenge.svg)
 ## Pipes 1
 
 In our current directory, we want to find the 3 files which have the least number of lines. Which command listed below would work?
 ```
+1. wc -l * > sort -n > head -3
+2. wc -l * | sort -n | head 1-3
+3. wc -l * | head -3 | sort -n
 4. wc -l * | sort -n | head -3
 ```
 
@@ -22,11 +49,7 @@ What text passes through each of the pipes and the final redirect in the pipelin
 ```
 cat animals.txt | head -5 | tail -3 | sort -r > final.txt
 ```
-```
-2012-11-06,rabbit
-2012-11-06,deer
-2012-11-05,raccoon
-```
+
 ## Pipes 3
 
 The command:
@@ -46,9 +69,6 @@ bear
 ```
 The command uniq prints only those lines that are not repeated in the input (unique lines). How could the cut and uniq commands be used to find out what animals the file contains (without any duplicates in their names)?
 
-```
-cut -d , -f 2 animals.txt | sort | uniq
-```
 ## Loops 1
 Suppose that ls initially displays:
 ```
@@ -70,21 +90,6 @@ done
 ```
 Why do these two loops give you different outputs?
 
-Loop 1 displays
-```
-fructose.dat glucose.dat  sucrose.dat
-fructose.dat glucose.dat  sucrose.dat
-fructose.dat glucose.dat  sucrose.dat
-```
-(lists all files ending in .dat on every loop iteration)
-
-Loop 2 displays
-```
-fructose.dat
-glucose.dat
-sucrose.dat
-```
-(displays the current value of the variable called datafile on each iteration)
 ## Loops 2
 
 In the same directory, what is the effect of this loop?
@@ -98,6 +103,11 @@ done
 ```
 1. Prints fructose.dat, glucose.dat, and sucrose.dat,
    and the text from sucrose.dat will be saved to a file called xylose.dat.
+2. Prints fructose.dat, glucose.dat, and sucrose.dat,
+   and the text from all three files would be concatenated and saved to a file called xylose.dat.
+3. Prints fructose.dat, glucose.dat, sucrose.dat, and xylose.dat,
+   and the text from sucrose.dat will be saved to a file called xylose.dat.
+4. None of the above.
 ```
 
 ## Loops 3
@@ -115,6 +125,11 @@ done
 ```
 1. All of the text from fructose.dat, glucose.dat and sucrose.dat would be concatenated
    and saved to a file called sugar.dat.
+2. The text from sucrose.dat will be saved to a file called sugar.dat.
+3. All of the text from fructose.dat, glucose.dat, sucrose.dat and maltose.txt would be
+   concatenated and saved to a file called sugar.dat.
+4. All of the text from fructose.dat, glucose.dat and sucrose.dat would be printed
+   to the screen and saved to a file called sugar.dat
 ```
 
 ### grep
@@ -137,6 +152,9 @@ and the presence of absence:
 ```
 ```
 1. grep "of" haiku.txt
+2. grep -E "of" haiku.txt
+3. grep -w "of" haiku.txt
+4. grep -i "of" haiku.txt
 ```
 
 ## Loops 4
@@ -158,8 +176,4 @@ do
     done
 done
 ```
-The output is
-```
-4
-6
-```
+

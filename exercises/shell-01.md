@@ -22,7 +22,7 @@ Using the filesystem diagram below, if pwd displays /Users/thing, what will ls .
 3. 2012-12-01/ 2013-01-08/ 2013-01-27/
 4. original pnas_final pnas_sub
 ```
-##ls reading comprehension
+##Listing
 Assuming a directory structure as in the previous exercise, if pwd displays /Users/backup, and -r tells ls to display things in reverse order, what command will display:
 ```
 pnas_sub/ pnas_final/ original/
@@ -43,7 +43,7 @@ After creating and saving this file you realise the filename is wrong! You want 
 2. mv statstics.txt statistics.txt
 3. mv statstics.txt .
 4. cp statstics.txt .
-
+```
 ##Moving and Copying
 What is the output of the closing ls command in the sequence shown below?
 ```
@@ -62,7 +62,7 @@ $ ls
 3. proteins.dat recombine
 4. proteins-saved.dat
 ```
-###Organizing Directories and Files
+##Organizing Directories and Files
 Jamie is working on a project and she sees that her files aren’t very well organized:
 ```
 $ ls -F

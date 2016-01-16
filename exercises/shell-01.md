@@ -1,179 +1,77 @@
 ## Many ways to do the same thing - absolute vs relative paths
 For a hypothetical filesystem location of /Users/amanda/data/, select each of the below commands that Amanda could use to navigate to her home directory, which is Users/amanda.
 ```
-cd .
-cd /
-cd /home/amanda
-cd ../..
-cd ~
-cd home
-cd ~/data/..
-cd
-cd ..
+1. cd .
+2. cd /
+3. cd /home/amanda
+4. cd ../..
+5. cd ~
+6. cd home
+7. cd ~/data/..
+8. cd
+9. cd ..
 ```
 ##Relative path resolution
 Using the filesystem diagram below, if pwd displays /Users/thing, what will ls ../backup display?
-```
-../backup: No such file or directory
-2012-12-01 2013-01-08 2013-01-27
-2012-12-01/ 2013-01-08/ 2013-01-27/
-original pnas_final pnas_sub
-```
-
 
 ![image for challenge](https://github.com/swcarpentry/shell-novice/blob/gh-pages/fig/filesystem-challenge.png)
-## Pipes 1
 
-In our current directory, we want to find the 3 files which have the least number of lines. Which command listed below would work?
 ```
-1. wc -l * > sort -n > head -3
-2. wc -l * | sort -n | head 1-3
-3. wc -l * | head -3 | sort -n
-4. wc -l * | sort -n | head -3
+1. ../backup: No such file or directory
+2. 2012-12-01 2013-01-08 2013-01-27
+3. 2012-12-01/ 2013-01-08/ 2013-01-27/
+4. original pnas_final pnas_sub
 ```
-
-## Pipes 2
-
-A file called animals.txt contains the following data:
+##ls reading comprehension
+Assuming a directory structure as in the previous exercise, if pwd displays /Users/backup, and -r tells ls to display things in reverse order, what command will display:
 ```
-2012-11-05,deer
-2012-11-05,rabbit
-2012-11-05,raccoon
-2012-11-06,rabbit
-2012-11-06,deer
-2012-11-06,fox
-2012-11-07,rabbit
-2012-11-07,bear
+pnas_sub/ pnas_final/ original/
 ```
-What text passes through each of the pipes and the final redirect in the pipeline below?
 ```
-cat animals.txt | head -5 | tail -3 | sort -r > final.txt
+1. ls pwd
+2. ls -r -F
+3. ls -r -F /Users/backup
+4. Either #2 or #3 above, but not #1
 ```
 
-## Pipes 3
+##Renaming files
+Suppose that you created a .txt file in your current directory to contain a list of the statistical tests you will need to do to analyze your data, and named it: statstics.txt
 
-The command:
+After creating and saving this file you realise the filename is wrong! You want to correct the mistake, which of the following commands could you use to do so?
 ```
-$ cut -d , -f 2 animals.txt
-```
-produces the following output:
-```
-deer
-rabbit
-raccoon
-rabbit
-deer
-fox
-rabbit
-bear
-```
-The command uniq prints only those lines that are not repeated in the input (unique lines). How could the cut and uniq commands be used to find out what animals the file contains (without any duplicates in their names)?
+1. cp statstics.txt statistics.txt
+2. mv statstics.txt statistics.txt
+3. mv statstics.txt .
+4. cp statstics.txt .
 
-## Loops 1
-Suppose that ls initially displays:
+##Moving and Copying
+What is the output of the closing ls command in the sequence shown below?
 ```
-fructose.dat    glucose.dat   sucrose.dat
-```
-What is the output of:
-```
-for datafile in *.dat
-do
-    ls *.dat
-done
-```
-Now, what is the output of:
-```
-for datafile in *.dat
-do
-  ls $datafile
-done
-```
-Why do these two loops give you different outputs?
-
-## Loops 2
-
-In the same directory, what is the effect of this loop?
-```
-for sugar in *.dat
-do
-    echo $sugar
-    cat $sugar > xylose.dat
-done
+$ pwd
+/Users/jamie/data
+$ ls
+proteins.dat
+$ mkdir recombine
+$ mv proteins.dat recombine
+$ cp recombine/proteins.dat ../proteins-saved.dat
+$ ls
 ```
 ```
-1. Prints fructose.dat, glucose.dat, and sucrose.dat,
-   and the text from sucrose.dat will be saved to a file called xylose.dat.
-2. Prints fructose.dat, glucose.dat, and sucrose.dat,
-   and the text from all three files would be concatenated and saved to a file called xylose.dat.
-3. Prints fructose.dat, glucose.dat, sucrose.dat, and xylose.dat,
-   and the text from sucrose.dat will be saved to a file called xylose.dat.
-4. None of the above.
+1. proteins-saved.dat recombine
+2. recombine
+3. proteins.dat recombine
+4. proteins-saved.dat
 ```
-
-## Loops 3
-In another directory, where ls returns:
+###Organizing Directories and Files
+Jamie is working on a project and she sees that her files aren’t very well organized:
 ```
-fructose.dat    glucose.dat   sucrose.dat   maltose.txt
+$ ls -F
+analysed/  fructose.dat    raw/   sucrose.dat
 ```
-What would be the output of the following loop?
+The fructose.dat and sucrose.dat files contain output from her data analysis. What command(s) covered in this lesson does she need to run so that the commands below will produce the output shown?
 ```
-for datafile in *.dat
-do
-    cat $datafile >> sugar.dat
-done
+$ ls -F
+analysed/   raw/
+$ ls analysed
+fructose.dat    sucrose.dat
 ```
-```
-1. All of the text from fructose.dat, glucose.dat and sucrose.dat would be concatenated
-   and saved to a file called sugar.dat.
-2. The text from sucrose.dat will be saved to a file called sugar.dat.
-3. All of the text from fructose.dat, glucose.dat, sucrose.dat and maltose.txt would be
-   concatenated and saved to a file called sugar.dat.
-4. All of the text from fructose.dat, glucose.dat and sucrose.dat would be printed
-   to the screen and saved to a file called sugar.dat
-```
-
-### grep
-```
-The Tao that is seen
-Is not the true Tao, until
-You bring fresh toner.
-
-With searching comes loss
-and the presence of absence:
-"My Thesis" not found.
-
-Yesterday it worked
-Today it is not working
-Software is like that.
-```
-From the above text, contained in the file haiku.txt, which command would result in the following output:
-```
-and the presence of absence:
-```
-```
-1. grep "of" haiku.txt
-2. grep -E "of" haiku.txt
-3. grep -w "of" haiku.txt
-4. grep -i "of" haiku.txt
-```
-
-## Loops 4
-
-The expr does simple arithmetic using command-line parameters:
-```
-$ expr 3 + 5
-8
-$ expr 30 / 5 - 2
-4
-```
-Given this, what is the output of:
-```
-for left in 2 3
-do
-    for right in $left
-    do
-        expr $left + $right
-    done
-done
-```
-

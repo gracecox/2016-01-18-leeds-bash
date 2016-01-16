@@ -21,7 +21,7 @@ original pnas_final pnas_sub
 ```
 
 
-![image for challenge](https://github.com/swcarpentry/shell-novice/blob/gh-pages/fig/filesystem-challenge.svg)
+![image for challenge](https://github.com/swcarpentry/shell-novice/blob/gh-pages/fig/filesystem-challenge.png)
 ## Pipes 1
 
 In our current directory, we want to find the 3 files which have the least number of lines. Which command listed below would work?
